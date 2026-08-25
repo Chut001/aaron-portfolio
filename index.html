@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Aaron | Portfolio</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #080808;
+    color: white;
+}
+
+/* NAVIGATION */
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(8,8,8,0.96);
+    padding: 18px 8px;
+    text-align: center;
+    border-bottom: 1px solid #222;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 7px;
+    font-size: 13px;
+}
+
+nav a:hover {
+    color: #00d9ff;
+}
+
+.theme-button {
+    margin-left: 5px;
+    padding: 7px 10px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+/* HERO */
+
+#home {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 50px 20px;
+
+    background:
+    radial-gradient(circle at top,
+    #12333a,
+    #080808 55%);
+}
+
+.profile {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #00d9ff;
+    margin-bottom: 25px;
+
+    animation: float 3s ease-in-out infinite;
+}
+
+#home h1 {
+    font-size: 44px;
+    margin: 10px 0;
+}
+
+#home h1 span {
+    color: #00d9ff;
+}
+
+#home p {
+    color: #ccc;
+    font-size: 18px;
+    max-width: 550px;
+    line-height: 1.7;
+}
+
+/* BUTTON */
+
+.button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 14px 27px;
+    background: #00d9ff;
+    color: #000;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.button:hover {
+    transform: scale(1.05);
+}
+
+/* SECTIONS */
+
+section:not(#home) {
+    padding: 80px 20px;
+    text-align: center;
+}
+
+section h2 {
+    font-size: 34px;
+    margin-bottom: 25px;
+}
+
+section h2 span {
+    color: #00d9ff;
+}
+
+section p {
+    max-width: 650px;
+    margin: auto;
+    color: #ccc;
+    line-height: 1.8;
+}
+
+/* SKILLS */
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.skill {
+    padding: 14px 22px;
+    border: 1px solid #333;
+    border-radius: 25px;
+    background: #151515;
+
+    transition: 0.3s;
+}
+
+.skill:hover {
+    transform: translateY(-5px);
+    border-color: #00d9ff;
+}
+
+/* PROJECTS */
+
+.projects {
+    max-width: 850px;
+    margin: auto;
+}
+
+.project {
+    background: #151515;
+    padding: 28px;
+    margin: 20px 0;
+    border-radius: 18px;
+    border: 1px solid #292929;
+    text-align: left;
+
+    transition: 0.3s;
+}
+
+.project:hover {
+    transform: translateY(-7px);
+    border-color: #00d9ff;
+}
+
+.project h3 {
+    color: #00d9ff;
+}
+
+/* CONTACT */
+
+#contact {
+    background: #111;
+}
+
+.contact-box {
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 30px;
+    background: #181818;
+    border-radius: 20px;
+}
+
+/* FOOTER */
+
+footer {
+    background: #050505;
+    color: #888;
+    text-align: center;
+    padding: 25px;
+}
+
+/* FLOATING ANIMATION */
+
+@keyframes float {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+
+}
+
+/* LIGHT MODE */
+
+.light-mode {
+    background: #f5f5f5;
+    color: #111;
+}
+
+.light-mode nav {
+    background: white;
+}
+
+.light-mode nav a {
+    color: #111;
+}
+
+.light-mode #home {
+    background: #f5f5f5;
+}
+
+.light-mode #home p,
+.light-mode section p {
+    color: #444;
+}
+
+.light-mode .project,
+.light-mode .skill,
+.light-mode .contact-box {
+    background: white;
+}
+
+.light-mode #contact {
+    background: #e8e8e8;
+}
+
+.light-mode footer {
+    background: white;
+    color: #555;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    #home h1 {
+        font-size: 34px;
+    }
+
+    nav a {
+        font-size: 12px;
+        margin: 0 4px;
+    }
+
+    section h2 {
+        font-size: 29px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- NAVIGATION -->
+
+<nav>
+
+<a href="#home">Home</a>
+
+<a href="#about">About</a>
+
+<a href="#skills">Skills</a>
+
+<a href="#projects">Projects</a>
+
+<a href="#contact">Contact</a>
+
+<button
+onclick="toggleTheme()"
+class="theme-button">
+
+🌙
+
+</button>
+
+</nav>
+
+
+<!-- HOME -->
+
+<section id="home">
+
+<img
+src="profile.jpg"
+class="profile"
+alt="Aaron">
+
+<h1>
+
+Hello, I'm
+<span>Aaron</span> 👋
+
+</h1>
+
+<p>
+
+I'm learning web development and creating
+modern digital projects.
+
+</p>
+
+<a
+href="#projects"
+class="button">
+
+View My Work
+
+</a>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<h2>
+
+About
+<span>Me</span>
+
+</h2>
+
+<p>
+
+Hello! My name is Aaron.
+
+I'm learning HTML, CSS and JavaScript
+and I'm working toward becoming a
+professional web developer.
+
+I enjoy learning new technology and
+creating useful digital projects.
+
+</p>
+
+</section>
+
+
+<!-- SKILLS -->
+
+<section id="skills">
+
+<h2>
+
+My
+<span>Skills</span>
+
+</h2>
+
+<div class="skills">
+
+<div class="skill">
+HTML
+</div>
+
+<div class="skill">
+CSS
+</div>
+
+<div class="skill">
+JavaScript
+</div>
+
+<div class="skill">
+Web Design
+</div>
+
+<div class="skill">
+Creative Design
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PROJECTS -->
+
+<section id="projects">
+
+<h2>
+
+My
+<span>Projects</span>
+
+</h2>
+
+<div class="projects">
+
+
+<div class="project">
+
+<h3>
+🌐 Personal Website
+</h3>
+
+<p>
+
+My first personal website created
+while learning web development.
+
+</p>
+
+<a href="#contact" class="button">
+
+View Project
+
+</a>
+
+</div>
+
+
+<div class="project">
+
+<h3>
+📱 Mobile Website
+</h3>
+
+<p>
+
+A mobile-friendly website designed
+to work properly on Android phones.
+
+</p>
+
+<a href="#contact" class="button">
+
+Learn More
+
+</a>
+
+</div>
+
+
+<div class="project">
+
+<h3>
+🚀 Future Project
+</h3>
+
+<p>
+
+More projects will be added here
+as I continue learning.
+
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+<h2>
+
+Contact
+<span>Me</span>
+
+</h2>
+
+<div class="contact-box">
+
+<p>
+
+Want to contact me?
+
+You can reach me directly on WhatsApp.
+
+</p>
+
+<a
+href="https://wa.me/2340000000000"
+class="button">
+
+💬 WhatsApp Me
+
+</a>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<p>
+
+© <span id="year"></span>
+Aaron. All Rights Reserved.
+
+</p>
+
+</footer>
+
+
+<script>
+
+
+/* DARK / LIGHT MODE */
+
+function toggleTheme() {
+
+document.body.classList.toggle("light-mode");
+
+}
+
+
+/* CURRENT YEAR */
+
+document.getElementById("year").textContent =
+new Date().getFullYear();
+
+
+/* WELCOME MESSAGE */
+
+window.onload = function() {
+
+setTimeout(function() {
+
+alert("Welcome to Aaron's website! 👋");
+
+}, 800);
+
+};
+
+</script>
+
+
+</body>
+
+</html>My Website
+├── index.html
+└── profile.jpg<img
+    src="profile.jpg"
+    class="profile"
+    alt="Aaron"><div class="project">
+
+    <img
+        src="project1.jpg"
+        class="project-image"
+        alt="My first website">
+
+    <h3>🌐 Personal Website</h3>
+
+    <p>
+        My first personal website created
+        while learning web development.
+    </p>
+
+    <a href="#contact" class="button">
+        View Project
+    </a>
+
+</div>.project-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-bottom: 15px;
+}<div class="project">
+
+    <img
+        src="project1.jpg"
+        class="project-image"
+        alt="Website project">
+
+    <h3>🌐 Personal Website</h3>
+
+    <p>
+        My first website built with HTML,
+        CSS and JavaScript.
+    </p>
+
+</div>
+
+
+<div class="project">
+
+    <img
+        src="project2.jpg"
+        class="project-image"
+        alt="Design project">
+
+    <h3>🎨 Creative Design</h3>
+
+    <p>
+        A creative digital design project
+        that I created while learning.
+    </p>
+
+</div>
+
+
+<div class="project">
+
+    <img
+        src="project3.jpg"
+        class="project-image"
+        alt="Mobile project">
+
+    <h3>📱 Mobile Project</h3>
+
+    <p>
+        A mobile-friendly project designed
+        for Android users.
+    </p>
+
+</div>project1.jpg
+project2.jpg
+project3.jpg.project-image {
+    transition: 0.3s;
+}
+
+.project:hover .project-image {
+    transform: scale(1.02);
+}<img src="project1.jpg">object-fit: cover;@media (max-width: 600px) {
+
+    nav {
+        padding: 14px 5px;
+    }
+
+    nav a {
+        display: inline-block;
+        margin: 5px 3px;
+        font-size: 12px;
+    }
+
+    #home {
+        padding: 40px 15px;
+    }
+
+    #home h1 {
+        font-size: 34px;
+    }
+
+    #home p {
+        font-size: 16px;
+    }
+
+    .profile {
+        width: 130px;
+        height: 130px;
+    }
+
+    .project {
+        padding: 20px;
+    }
+
+    .project-image {
+        height: 180px;
+    }
+
+}
